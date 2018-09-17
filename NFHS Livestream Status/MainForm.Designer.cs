@@ -53,6 +53,7 @@
             this.tm30sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tm5sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detailDifferentEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchForEventBySchoolIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label11 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.refreshTglBtn = new System.Windows.Forms.ToolStripButton();
@@ -61,7 +62,7 @@
             this.viewLsBtn = new System.Windows.Forms.Button();
             this.notifyCB = new System.Windows.Forms.CheckBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.searchForEventBySchoolIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyIdTb = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -140,7 +141,6 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(9, 96);
             this.label9.Name = "label9";
@@ -150,7 +150,6 @@
             // 
             // hdLbl
             // 
-            this.hdLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.hdLbl.AutoSize = true;
             this.hdLbl.ForeColor = System.Drawing.Color.Red;
             this.hdLbl.Location = new System.Drawing.Point(121, 96);
@@ -166,7 +165,7 @@
             this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(487, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(573, 24);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -210,7 +209,7 @@
             // alwaysOnTopToolStripMenuItem
             // 
             this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.alwaysOnTopToolStripMenuItem.Text = "Always on Top";
             this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_Click);
             // 
@@ -220,7 +219,7 @@
             this.notifyOfStatusChangeToolStripMenuItem.CheckOnClick = true;
             this.notifyOfStatusChangeToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.notifyOfStatusChangeToolStripMenuItem.Name = "notifyOfStatusChangeToolStripMenuItem";
-            this.notifyOfStatusChangeToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.notifyOfStatusChangeToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.notifyOfStatusChangeToolStripMenuItem.Text = "Notify of Status Change";
             this.notifyOfStatusChangeToolStripMenuItem.CheckedChanged += new System.EventHandler(this.notifyOfStatusChangeToolStripMenuItem_CheckedChanged);
             // 
@@ -232,7 +231,7 @@
             this.tm30sToolStripMenuItem,
             this.tm5sToolStripMenuItem});
             this.refreshRateToolStripMenuItem.Name = "refreshRateToolStripMenuItem";
-            this.refreshRateToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.refreshRateToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.refreshRateToolStripMenuItem.Text = "Refresh Rate";
             // 
             // tm3mToolStripMenuItem
@@ -272,11 +271,18 @@
             this.detailDifferentEventToolStripMenuItem.Text = "Detail Event by ID";
             this.detailDifferentEventToolStripMenuItem.Click += new System.EventHandler(this.detailDifferentEventToolStripMenuItem_Click);
             // 
+            // searchForEventBySchoolIDToolStripMenuItem
+            // 
+            this.searchForEventBySchoolIDToolStripMenuItem.Name = "searchForEventBySchoolIDToolStripMenuItem";
+            this.searchForEventBySchoolIDToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.searchForEventBySchoolIDToolStripMenuItem.Text = "Search for Event by School ID";
+            this.searchForEventBySchoolIDToolStripMenuItem.Click += new System.EventHandler(this.searchForEventBySchoolIDToolStripMenuItem_Click);
+            // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(336, 135);
+            this.label11.Location = new System.Drawing.Point(422, 152);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label11.Size = new System.Drawing.Size(139, 13);
@@ -292,9 +298,9 @@
             this.refreshTglBtn,
             this.progBar,
             this.timeUntlRfrLbl});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 152);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 169);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(487, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(573, 25);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
@@ -328,7 +334,7 @@
             // viewLsBtn
             // 
             this.viewLsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.viewLsBtn.Location = new System.Drawing.Point(156, 127);
+            this.viewLsBtn.Location = new System.Drawing.Point(156, 144);
             this.viewLsBtn.Name = "viewLsBtn";
             this.viewLsBtn.Size = new System.Drawing.Size(98, 23);
             this.viewLsBtn.TabIndex = 11;
@@ -342,7 +348,7 @@
             this.notifyCB.AutoSize = true;
             this.notifyCB.Checked = true;
             this.notifyCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.notifyCB.Location = new System.Drawing.Point(12, 131);
+            this.notifyCB.Location = new System.Drawing.Point(12, 148);
             this.notifyCB.Name = "notifyCB";
             this.notifyCB.Size = new System.Drawing.Size(138, 17);
             this.notifyCB.TabIndex = 16;
@@ -356,18 +362,23 @@
             this.notifyIcon1.Text = "NFHS Live Stream Status";
             this.notifyIcon1.Visible = true;
             // 
-            // searchForEventBySchoolIDToolStripMenuItem
+            // copyIdTb
             // 
-            this.searchForEventBySchoolIDToolStripMenuItem.Name = "searchForEventBySchoolIDToolStripMenuItem";
-            this.searchForEventBySchoolIDToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.searchForEventBySchoolIDToolStripMenuItem.Text = "Search for Event by School ID";
-            this.searchForEventBySchoolIDToolStripMenuItem.Click += new System.EventHandler(this.searchForEventBySchoolIDToolStripMenuItem_Click);
+            this.copyIdTb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.copyIdTb.Location = new System.Drawing.Point(260, 144);
+            this.copyIdTb.Name = "copyIdTb";
+            this.copyIdTb.Size = new System.Drawing.Size(149, 23);
+            this.copyIdTb.TabIndex = 17;
+            this.copyIdTb.Text = "Copy Event ID To Clipboard";
+            this.copyIdTb.UseVisualStyleBackColor = true;
+            this.copyIdTb.Click += new System.EventHandler(this.copyIdTb_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 177);
+            this.ClientSize = new System.Drawing.Size(573, 194);
+            this.Controls.Add(this.copyIdTb);
             this.Controls.Add(this.notifyCB);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label11);
@@ -431,6 +442,7 @@
         private System.Windows.Forms.ToolStripMenuItem tm5sToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detailDifferentEventToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchForEventBySchoolIDToolStripMenuItem;
+        private System.Windows.Forms.Button copyIdTb;
     }
 }
 

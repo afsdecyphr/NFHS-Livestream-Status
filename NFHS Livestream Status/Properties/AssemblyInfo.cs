@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Parkview Baptist High School Student")]
 [assembly: AssemblyProduct("NFHS Live Stream Status Fetcher")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Josh Duncan Copyright 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

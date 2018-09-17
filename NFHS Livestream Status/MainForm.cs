@@ -237,5 +237,10 @@ namespace NFHS_Livestream_Status
             origForm.reset();
             origForm.Show();
         }
+
+        private void copyIdTb_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(eventId);
+        }
     }
 }
