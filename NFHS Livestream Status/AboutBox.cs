@@ -106,5 +106,10 @@ namespace NFHS_Livestream_Status
         {
             this.Close();
         }
+
+        private void AboutBox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

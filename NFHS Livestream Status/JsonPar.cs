@@ -6,7 +6,7 @@ namespace NFHS_Livestream_Status
 {
     internal class JsonPar
     {
-        private string eventId = null;
+        public string eventId = null;
         private string eventType = null;
 
         protected string _Status = null;
@@ -27,7 +27,7 @@ namespace NFHS_Livestream_Status
         public void Load()
         {
             WebClient WebC = new WebClient();
-            var RawJson = WebC.DownloadString("http://cfunity.nfhsnetwork.com/v1/" + eventType + "/" + eventId);
+            var RawJson = WebC.DownloadString("https://cfunity.nfhsnetwork.com/v2/game_or_event/" + eventId);
             JObject parsedObject = JObject.Parse(RawJson);
 
             parsedObject = JObject.Parse(RawJson);
@@ -37,7 +37,7 @@ namespace NFHS_Livestream_Status
             _SubHeadline = parsedObject["publishers"][0]["broadcasts"][0]["subheadline"].ToString();
             _Description = parsedObject["publishers"][0]["broadcasts"][0]["description"].ToString();
             _Key = parsedObject["publishers"][0]["broadcasts"][0]["key"].ToString();
-            _HD = Convert.ToBoolean(parsedObject["publishers"][0]["broadcasts"][0]["is_hd"]);
+            _HD = Convert.ToBoolean(parsedObject["publishers"][0]["broadcasts"][0]["hd_enabled"]);
 
             RawJson = WebC.DownloadString("http://cfunity.nfhsnetwork.com/v1/broadcasts/" + _Key + "/url.json");
             parsedObject = JObject.Parse(RawJson);

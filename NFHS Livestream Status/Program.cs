@@ -13,7 +13,8 @@ namespace NFHS_Livestream_Status
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new setEventId());
+            Application.Run(new setEventId(null));
+            //Application.Run(new listEventsBySchool(null));
         }
     }
 }

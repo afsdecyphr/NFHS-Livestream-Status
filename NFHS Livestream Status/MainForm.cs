@@ -10,21 +10,26 @@ namespace NFHS_Livestream_Status
     {
         private string eventId = null;
         private string lastStatus = null;
-        private Form origForm;
-        
+        private listEventsBySchool origForm;
+        private setEventId origForm2;
+
         private System.Timers.Timer RefreshTmr = new System.Timers.Timer();
 
         private JsonPar _Json;
 
-        public MainForm(string id, string type, Form orig)
+        public MainForm(string id, string type, listEventsBySchool orig = null, setEventId orig2 = null)
         {
             origForm = orig;
+            origForm2 = orig2;
             InitializeComponent();
             eventId = id;
-            setEventId frm = new setEventId();
-            frm.Close();
 
             _Json = new JsonPar(eventId, type);
+        }
+
+        public void setEventID(string id)
+        {
+            _Json.eventId = id;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -49,8 +54,11 @@ namespace NFHS_Livestream_Status
         private void ExecuteRefesh(object sender, System.Timers.ElapsedEventArgs arg)
         {
             this.timeUntlRfrLbl.Text = "Time until next refresh: " + (increment - secOn) + " (s)";
-            
+
             Invoke(new Action(() => { this.progBar.Value = secOn; }));
+            int addedHeight = descriptionLbl.Height - 13;
+            Debug.Print(addedHeight.ToString());
+            Invoke(new Action(() => { this.Height = 216 + addedHeight; }));
             if (secOn == increment)
             {
                 _Json.Load();
@@ -207,6 +215,27 @@ namespace NFHS_Livestream_Status
         private void notifyCB_CheckedChanged(object sender, EventArgs e)
         {
             notifyOfStatusChangeToolStripMenuItem.Checked = notifyCB.Checked;
+        }
+
+        private void detailDifferentEventToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (origForm2 == null)
+            {
+                origForm2 = new setEventId(this);
+            }
+            origForm2.Show();
+        }
+
+        private void searchForEventBySchoolIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (origForm == null)
+            {
+                origForm = new listEventsBySchool(this);
+            }
+            origForm.reset();
+            origForm.Show();
         }
     }
 }
